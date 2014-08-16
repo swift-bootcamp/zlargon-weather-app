@@ -11,6 +11,8 @@ import UIKit
 class ViewController: UIViewController, NSURLConnectionDataDelegate {
 
     @IBOutlet weak var mCity: UILabel!
+    @IBOutlet weak var mCelsius: UILabel!
+    @IBOutlet weak var mFahrenheit: UILabel!
 
     var data : NSMutableData = NSMutableData()
 
@@ -71,7 +73,8 @@ class ViewController: UIViewController, NSURLConnectionDataDelegate {
         let celsiusTemp    = Int(round(temp!.floatValue - absolute_zero))
         let fahrenheitTemp = celsiusTemp * (9/5) + 32
 
-        println("celsius = \(celsiusTemp)")
-        println("fahrenheitTemp = \(fahrenheitTemp)")
+        // set Text View
+        self.mCelsius.text = "\(celsiusTemp) ℃"
+        self.mFahrenheit.text = "\(fahrenheitTemp) ℉"
     }
 }
