@@ -11,7 +11,6 @@ import UIKit
 class ViewController: UIViewController, NSURLConnectionDataDelegate {
 
     @IBOutlet weak var mCity: UILabel!
-    @IBOutlet weak var mIcon: UIImageView!
 
     var data : NSMutableData = NSMutableData()
 
@@ -20,7 +19,6 @@ class ViewController: UIViewController, NSURLConnectionDataDelegate {
         // Do any additional setup after loading the view, typically from a nib.
 
         self.mCity.text = "Taipei"
-        self.mIcon.image = UIImage(named: "sun-icon.jpg")
 
         startConnection()
     }
