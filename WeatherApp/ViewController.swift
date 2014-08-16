@@ -65,5 +65,17 @@ class ViewController: UIViewController, NSURLConnectionDataDelegate {
             error: &error) as NSDictionary
 
         println(jsonDictionaray)
+
+        // get temperature
+        let temp: AnyObject? = jsonDictionaray["main"]?["temp"]?
+
+        let absolute_zero: Float = 273.15
+
+        // convert to Celsius and Fahrenheit
+        let celsiusTemp    = Int(round(temp!.floatValue - absolute_zero))
+        let fahrenheitTemp = celsiusTemp * (9/5) + 32
+
+        println("celsius = \(celsiusTemp)")
+        println("fahrenheitTemp = \(fahrenheitTemp)")
     }
 }
