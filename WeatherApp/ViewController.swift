@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, NSURLConnectionDataDelegate {
 
     @IBOutlet weak var mCity: UILabel!
     @IBOutlet weak var mIcon: UIImageView!
@@ -21,10 +21,34 @@ class ViewController: UIViewController {
 
         self.mCity.text = "Taipei"
         self.mIcon.image = UIImage(named: "sun-icon.jpg")
+
+        startConnection()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+
+    func startConnection() {
+        var resetAPI: String = "http://api.openweathermap.org/data/2.5/weather?q=Taipei"
+
+        var connection: NSURLConnection = NSURLConnection(
+            request: NSURLRequest(
+                URL: NSURL(string: resetAPI)
+            ),
+            delegate: self,
+            startImmediately: true
+        )
+
+        println("start download")
+    }
+
+    func connection(connection: NSURLConnection!, didReceiveData data: NSData!) {
+        println("downloading")
+    }
+
+    func connectionDidFinishLoading(connection: NSURLConnection!) {
+        println("download finish")
     }
 }
