@@ -13,6 +13,8 @@ class ViewController: UIViewController, NSURLConnectionDataDelegate {
     @IBOutlet weak var mCity: UILabel!
     @IBOutlet weak var mIcon: UIImageView!
 
+    var data : NSMutableData = NSMutableData()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -46,9 +48,14 @@ class ViewController: UIViewController, NSURLConnectionDataDelegate {
 
     func connection(connection: NSURLConnection!, didReceiveData data: NSData!) {
         println("downloading")
+
+        self.data.appendData(data)
     }
 
     func connectionDidFinishLoading(connection: NSURLConnection!) {
         println("download finish")
+
+        var json: NSString = NSString(data: self.data, encoding: NSUTF8StringEncoding)
+        println(json)
     }
 }
