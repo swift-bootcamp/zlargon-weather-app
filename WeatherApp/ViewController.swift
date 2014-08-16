@@ -19,8 +19,6 @@ class ViewController: UIViewController, NSURLConnectionDataDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "cloud-icon.jpg"))
-
         self.mCity.text = "Taipei"
         self.mIcon.image = UIImage(named: "sun-icon.jpg")
 
