@@ -56,6 +56,14 @@ class ViewController: UIViewController, NSURLConnectionDataDelegate {
         println("download finish")
 
         var json: NSString = NSString(data: self.data, encoding: NSUTF8StringEncoding)
-        println(json)
+
+        // JSON Parse
+        var error: NSError?
+        let jsonDictionaray = NSJSONSerialization.JSONObjectWithData(
+            self.data,
+            options: NSJSONReadingOptions.MutableContainers,
+            error: &error) as NSDictionary
+
+        println(jsonDictionaray)
     }
 }
