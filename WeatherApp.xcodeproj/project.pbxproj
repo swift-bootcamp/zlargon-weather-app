@@ -13,6 +13,7 @@
 		CF85FC60199F26710020D2E6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF85FC5F199F26710020D2E6 /* Images.xcassets */; };
 		CF85FC6C199F26710020D2E6 /* WeatherAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF85FC6B199F26710020D2E6 /* WeatherAppTests.swift */; };
 		CF85FC76199F30470020D2E6 /* sun-icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CF85FC75199F30470020D2E6 /* sun-icon.jpg */; };
+		CF85FC78199F33A20020D2E6 /* cloud-icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CF85FC77199F33A20020D2E6 /* cloud-icon.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		CF85FC6A199F26710020D2E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF85FC6B199F26710020D2E6 /* WeatherAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAppTests.swift; sourceTree = "<group>"; };
 		CF85FC75199F30470020D2E6 /* sun-icon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "sun-icon.jpg"; sourceTree = "<group>"; };
+		CF85FC77199F33A20020D2E6 /* cloud-icon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "cloud-icon.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		CF85FC55199F26710020D2E6 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				CF85FC77199F33A20020D2E6 /* cloud-icon.jpg */,
 				CF85FC75199F30470020D2E6 /* sun-icon.jpg */,
 				CF85FC58199F26710020D2E6 /* AppDelegate.swift */,
 				CF85FC5A199F26710020D2E6 /* ViewController.swift */,
@@ -192,6 +195,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF85FC78199F33A20020D2E6 /* cloud-icon.jpg in Resources */,
 				CF85FC5E199F26710020D2E6 /* Main.storyboard in Resources */,
 				CF85FC76199F30470020D2E6 /* sun-icon.jpg in Resources */,
 				CF85FC60199F26710020D2E6 /* Images.xcassets in Resources */,
