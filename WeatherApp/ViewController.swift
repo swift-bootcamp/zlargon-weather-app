@@ -34,7 +34,10 @@ class ViewController: UIViewController, NSURLConnectionDataDelegate {
         println("handleSingleTap")
         self.mCelsius.text = "Celsius"
         self.mFahrenheit.text = "Fahrenheit"
-        startConnection()
+
+        // replace startConnection to getWeather
+        // startConnection()
+        getWeather()
     }
 
     override func didReceiveMemoryWarning() {
@@ -100,5 +103,54 @@ class ViewController: UIViewController, NSURLConnectionDataDelegate {
             println("weather icon: \(weatherIcon)")
             self.mImage.image = UIImage(data: NSData(contentsOfURL: NSURL(string:"http://openweathermap.org/img/w/\(weatherIcon).png")))
         }
+    }
+
+    func getWeather() {
+        println("get weather")
+
+        NSURLConnection.sendAsynchronousRequest(
+            NSURLRequest(URL: NSURL(string: "http://api.openweathermap.org/data/2.5/weather?q=Taipei")),
+            queue: NSOperationQueue.mainQueue(),
+            completionHandler: {(response, data, error) in
+
+            // check error
+            if (error != nil) {
+                println("Cannot get weather information from server.")
+                return
+            }
+
+            // JSON Parse
+            var jsonDictionaray: NSDictionary = NSJSONSerialization.JSONObjectWithData(
+                data,
+                options: NSJSONReadingOptions.MutableContainers,
+                error: nil) as NSDictionary
+
+            println(jsonDictionaray)
+
+            // get temperature
+            let temp: AnyObject? = jsonDictionaray["main"]?["temp"]?
+
+            let absolute_zero: Float = 273.15
+
+            // convert to Celsius and Fahrenheit
+            let celsiusTemp    = Int(round(temp!.floatValue - absolute_zero))
+            let fahrenheitTemp = celsiusTemp * (9/5) + 32
+
+            // set Text View
+            self.mCelsius.text = "\(celsiusTemp) ℃"
+            self.mFahrenheit.text = "\(fahrenheitTemp) ℉"
+
+            // get weather ID & icon
+            if let weather = jsonDictionaray["weather"]? as? NSArray {
+                let weatherDictionary = weather[0]? as NSDictionary
+                let weatherId = weatherDictionary["id"] as Int
+                println("weather ID: \(weatherId)")
+
+                // show the icon on the screen
+                let weatherIcon = weatherDictionary["icon"] as String
+                println("weather icon: \(weatherIcon)")
+                self.mImage.image = UIImage(data: NSData(contentsOfURL: NSURL(string:"http://openweathermap.org/img/w/\(weatherIcon).png")))
+            }
+        })
     }
 }
