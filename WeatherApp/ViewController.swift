@@ -15,23 +15,21 @@ class ViewController: UIViewController {
     @IBOutlet weak var mFahrenheit: UILabel!
     @IBOutlet weak var mImage: UIImageView!
 
+    let cityName: String = "Taipei"
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 
-        self.mCity.text = "Taipei"
+        self.mCity.text = self.cityName
 
         //touch the screen for download
-        let singleFingerTap = UITapGestureRecognizer(target: self, action: "handleSingleTap:")
-        self.view.addGestureRecognizer(singleFingerTap)
-
-        getWeather()
-    }
-
-    func handleSingleTap (recognizer: UITapGestureRecognizer) {
-        println("handleSingleTap")
-        self.mCelsius.text = "Celsius"
-        self.mFahrenheit.text = "Fahrenheit"
+        self.view.addGestureRecognizer(
+            UITapGestureRecognizer(
+                target: self,
+                action: "onTapHandler:"
+            )
+        )
 
         getWeather()
     }
@@ -41,11 +39,19 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    func getWeather() {
-        println("get weather")
 
+    // onTap Handler
+    func onTapHandler (recognizer: UITapGestureRecognizer) {
+        self.mCelsius.text = "Celsius"
+        self.mFahrenheit.text = "Fahrenheit"
+
+        getWeather()
+    }
+
+    // Get Weather from open weather map API
+    func getWeather() {
         NSURLConnection.sendAsynchronousRequest(
-            NSURLRequest(URL: NSURL(string: "http://api.openweathermap.org/data/2.5/weather?q=Taipei")),
+            NSURLRequest(URL: NSURL(string: "http://api.openweathermap.org/data/2.5/weather?q=\(self.cityName)")),
             queue: NSOperationQueue.mainQueue(),
             completionHandler: {(response, data, error) in
 
