@@ -87,5 +87,12 @@ class ViewController: UIViewController, NSURLConnectionDataDelegate {
         // set Text View
         self.mCelsius.text = "\(celsiusTemp) ℃"
         self.mFahrenheit.text = "\(fahrenheitTemp) ℉"
+
+        // get weather ID
+        if let weather = jsonDictionaray["weather"]? as? NSArray {
+            let weatherDictionary = weather[0]? as NSDictionary
+            let weatherId = weatherDictionary["id"] as Int
+            println("weather ID: \(weatherId)")
+        }
     }
 }
