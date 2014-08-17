@@ -22,6 +22,17 @@ class ViewController: UIViewController, NSURLConnectionDataDelegate {
 
         self.mCity.text = "Taipei"
 
+        //touch the screen for download
+        let singleFingerTap = UITapGestureRecognizer(target: self, action: "handleSingleTap:")
+        self.view.addGestureRecognizer(singleFingerTap)
+
+        startConnection()
+    }
+
+    func handleSingleTap (recognizer: UITapGestureRecognizer) {
+        println("handleSingleTap")
+        self.mCelsius.text = "Celsius"
+        self.mFahrenheit.text = "Fahrenheit"
         startConnection()
     }
 
@@ -47,7 +58,7 @@ class ViewController: UIViewController, NSURLConnectionDataDelegate {
     func connection(connection: NSURLConnection!, didReceiveData data: NSData!) {
         println("downloading")
 
-        self.data.appendData(data)
+        self.data.setData(data)
     }
 
     func connectionDidFinishLoading(connection: NSURLConnection!) {
