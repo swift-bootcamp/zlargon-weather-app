@@ -43,6 +43,12 @@
                                     <rect key="frame" x="103" y="117" width="113" height="42"/>
                                 </variation>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HF3-Tw-kuy">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="heightClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="39" y="167" width="240" height="128"/>
+                                </variation>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <variation key="default">
@@ -50,6 +56,7 @@
                                 <exclude reference="jG6-hI-OfP"/>
                                 <exclude reference="U8J-yT-blZ"/>
                                 <exclude reference="XlC-QE-E2M"/>
+                                <exclude reference="HF3-Tw-kuy"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">
@@ -57,6 +64,7 @@
                                 <include reference="jG6-hI-OfP"/>
                                 <include reference="U8J-yT-blZ"/>
                                 <include reference="XlC-QE-E2M"/>
+                                <include reference="HF3-Tw-kuy"/>
                             </mask>
                         </variation>
                     </view>
@@ -64,6 +72,7 @@
                         <outlet property="mCelsius" destination="U8J-yT-blZ" id="FcK-ia-NNi"/>
                         <outlet property="mCity" destination="jG6-hI-OfP" id="v6Y-QX-LKS"/>
                         <outlet property="mFahrenheit" destination="XlC-QE-E2M" id="Lgs-NR-sG1"/>
+                        <outlet property="mImage" destination="HF3-Tw-kuy" id="72j-3b-GLh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

@@ -13,6 +13,7 @@ class ViewController: UIViewController, NSURLConnectionDataDelegate {
     @IBOutlet weak var mCity: UILabel!
     @IBOutlet weak var mCelsius: UILabel!
     @IBOutlet weak var mFahrenheit: UILabel!
+    @IBOutlet weak var mImage: UIImageView!
 
     var data : NSMutableData = NSMutableData()
 
