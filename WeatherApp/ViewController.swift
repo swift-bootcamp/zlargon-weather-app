@@ -89,11 +89,16 @@ class ViewController: UIViewController, NSURLConnectionDataDelegate {
         self.mCelsius.text = "\(celsiusTemp) ℃"
         self.mFahrenheit.text = "\(fahrenheitTemp) ℉"
 
-        // get weather ID
+        // get weather ID & icon
         if let weather = jsonDictionaray["weather"]? as? NSArray {
             let weatherDictionary = weather[0]? as NSDictionary
             let weatherId = weatherDictionary["id"] as Int
             println("weather ID: \(weatherId)")
+
+            // show the icon on the screen
+            let weatherIcon = weatherDictionary["icon"] as String
+            println("weather icon: \(weatherIcon)")
+            self.mImage.image = UIImage(data: NSData(contentsOfURL: NSURL(string:"http://openweathermap.org/img/w/\(weatherIcon).png")))
         }
     }
 }
